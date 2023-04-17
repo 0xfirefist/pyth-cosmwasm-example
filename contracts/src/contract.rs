@@ -140,10 +140,7 @@ pub fn query(deps: Deps, env: Env, msg: QueryMsg) -> StdResult<Binary> {
                     if price.price < 0 {
                         return Err(StdError::generic_err("price received is negative"));
                     }
-
-                    // 1 INJ = x USD
-                    // y USD = y/x INJ
-
+                    
                     // calculate the amount required in 'inj'
                     // based on the given usd amount
 
