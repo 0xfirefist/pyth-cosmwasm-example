@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExecuteMsg",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "send_inj"
+      ],
+      "properties": {
+        "send_inj": {
+          "type": "object",
+          "required": [
+            "to_address",
+            "usd_amount"
+          ],
+          "properties": {
+            "to_address": {
+              "type": "string"
+            },
+            "usd_amount": {
+              "type": "integer",
+              "format": "uint128",
+              "minimum": 0.0
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

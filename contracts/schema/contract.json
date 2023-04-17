@@ -1,0 +1,110 @@
+{
+  "contract_name": "contract",
+  "contract_version": "0.1.0",
+  "idl_version": "1.0.0",
+  "instantiate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "InstantiateMsg",
+    "type": "object",
+    "required": [
+      "price_feed_id",
+      "pyth_contract_addr"
+    ],
+    "properties": {
+      "price_feed_id": {
+        "$ref": "#/definitions/Identifier"
+      },
+      "pyth_contract_addr": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false,
+    "definitions": {
+      "Identifier": {
+        "type": "string"
+      }
+    }
+  },
+  "execute": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ExecuteMsg",
+    "oneOf": [
+      {
+        "type": "object",
+        "required": [
+          "send_inj"
+        ],
+        "properties": {
+          "send_inj": {
+            "type": "object",
+            "required": [
+              "to_address",
+              "usd_amount"
+            ],
+            "properties": {
+              "to_address": {
+                "type": "string"
+              },
+              "usd_amount": {
+                "type": "integer",
+                "format": "uint128",
+                "minimum": 0.0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  },
+  "query": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "QueryMsg",
+    "oneOf": [
+      {
+        "type": "object",
+        "required": [
+          "required_funds"
+        ],
+        "properties": {
+          "required_funds": {
+            "type": "object",
+            "required": [
+              "usd_amount"
+            ],
+            "properties": {
+              "usd_amount": {
+                "type": "integer",
+                "format": "uint128",
+                "minimum": 0.0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  },
+  "migrate": null,
+  "sudo": null,
+  "responses": {
+    "required_funds": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "RequiredFundsResponse",
+      "type": "object",
+      "required": [
+        "required_amount"
+      ],
+      "properties": {
+        "required_amount": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
