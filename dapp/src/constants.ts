@@ -26,6 +26,6 @@ function getMnemonic(): string {
 }
 
 export const INJECTIVE_WALLET = new Injective(
-  getNetworkInfo(Network.Testnet).grpc,
+  getNetworkInfo(Network.TestnetK8s).grpc,
   getMnemonic()
 );
