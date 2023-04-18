@@ -44,7 +44,7 @@ export default function Home() {
     <main className="bg- h-screen w-screen">
       <Image src={PythLogo} alt="pyth logo" className="w-2/12 mx-auto py-6" />
       <h1 className="text-5xl text-center pb-4">
-        Send {usdAmount}$ worth of USD to a friend
+        Send {usdAmount}$ worth of INJ to a friend
       </h1>
       <h3 className="text-3xl text-center">
         Current INJ/USD price is:{" "}
